@@ -35,19 +35,4 @@ Contributors
 * **Van Dinh** - *Software Developer* - [Linkedin](https://www.linkedin.com/in/vandinh124/)
 
 
-Support
----
 
-Connect with Hacker Dojo on our:
-
-* [Website](https://hackerdojo.com)
-
-* [Instagram](https://www.instagram.com/hackerdojo/)
-
-* [Twitter](https://twitter.com/hackerdojo)
-
-
-License
----
-
-Copyright © Hacker Dojo. All rights reserved.
