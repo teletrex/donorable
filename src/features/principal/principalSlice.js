@@ -9,24 +9,29 @@ const gcpUpdateUser =  (state, updateFields) => {
     .then( (response) => {
 
       }
-    );
+    ).catch(error => {
+    console.log(error)
+  }
+  )
 }
 
 const initialState = {
   status: "checking",
-    id:"",
-    email:"",
-    firstname :"",
-    lastname:"",
-    phone:"",
-    registered:"",
-    registeredAs:"",
-    enteredLocation:"",
-    isAdmin: false,
-    searchFilter:[],
-    liked: [],
-    disliked:[],
-    favorites:[],
+  id:"",
+  email:"",
+  firstname :"",
+  middlename: "",
+  lastname:"",
+  phone:"",
+  registered:"",
+  registeredAs:"",
+  enteredLocation:"",
+  isAdmin: false,
+  searchFilter:[],
+  liked: [],
+  disliked:[],
+  favorites:[],
+  donateAnonymously:false
 }
 
 export const principalSlice = createSlice({
@@ -41,13 +46,10 @@ export const principalSlice = createSlice({
       return initialState;
     },
 
-    updateUserSettings: (state, action) => {
-      const userSettings = action.payload;
-      gcpUpdateUser(state,userSettings);
-      state.firstname = userSettings.firstname;
-      state.lastname = userSettings.lastname;
-      state.phone = userSettings.phone;
-      state.enteredLocation = userSettings.enteredLocation;
+    updateProfile: (state, action) => {
+      const profile = action.payload;
+      gcpUpdateUser(state,profile);
+      Object.keys(profile).map( key => state[key] = profile[key]);
     },
 
     addLiked: (state,action) => {
@@ -108,7 +110,7 @@ export const {
   removeFavorite,
   nullUserToStart,
   login,
-  updateUserSettings
+  updateProfile
 } = principalSlice.actions
 
 export default principalSlice.reducer
